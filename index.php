@@ -7,9 +7,10 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Student List</title>
     </head>
     <body>
+        <h1 align="center"> Student List </h1>
         <?php
         include( 'student.php' );
         
@@ -40,15 +41,28 @@ and open the template in the editor.
         $second->add_grade( 50 );
         $students['a456'] = $second;
         
+        //Add myself (Rhea) to the list!
+        $third = new Student();
+        $third->surname = "Lauzon";
+        $third->first_name = "Rhea";
+        $third->add_email( 'home','rhealauzon@gmail.com' );
+        $third->add_email( 'school','rlauzon5@my.bcit.ca' );
+        
+        $third->add_grade( 95 );
+        $third->add_grade ( 86 );
+        $third->add_grade( 91 );
+        $students['r789'] = $third;
         //sort the students 
         ksort( $students );
         
         //display each student on the screen 
         //with their details
+        echo '<p align="center" >';
         foreach( $students as $student )
         {
             echo $student->toString();
         }
+        echo '</p>';
         ?>
     </body>
 </html>
